@@ -1,0 +1,33 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+header {
+	display: flex;
+	background-color: #1F2937;
+	padding: 0 25px;
+}
+
+header h1 {
+	font-size: 24px;
+	color: #F9FAF8;
+}
+
+nav {
+	margin-left: auto;
+}
+
+header ul {
+	display: flex;
+	list-style: none;
+	font-size: 18px;
+	color: #E5E7EB;
+	gap: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
