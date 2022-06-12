@@ -1,17 +1,18 @@
-body {
+* {
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
 }
 
-header {
+header, .hero {
 	display: flex;
 	background-color: #1F2937;
-	padding: 0 25px;
+	padding: 20px 200px 100px 180px;
 }
 
-header h1 {
+header p {
 	font-size: 24px;
+	font-weight: bold;
 	color: #F9FAF8;
 }
 
@@ -22,12 +23,50 @@ nav {
 header ul {
 	display: flex;
 	list-style: none;
+	gap: 20px;
+}
+
+header ul, .hero p {
 	font-size: 18px;
 	color: #E5E7EB;
-	gap: 20px;
 }
 
 a {
 	text-decoration: none;
 	color: inherit;
 }
+
+.hero {
+	display: flex;
+}
+
+.hero h1 {
+	font-size: 48px;
+	font-weight: bold;
+	color: #F9FAF8;
+}
+
+.hero button {
+	background-color: #3882F6;
+	font-weight: bold;
+	color: #E5E7EB;
+	border: none;
+	border-radius: 8px;
+	padding: 7px 25px;
+	margin-top: 10px
+}
+
+.hero .image-placeholder {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #666;
+	color: white;
+	margin-left: 30px;
+	width: 500px;
+	min-height: 250px;
+	flex-shrink: 0;
+}
+
+
+
