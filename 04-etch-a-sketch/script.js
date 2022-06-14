@@ -1,8 +1,9 @@
 const container = document.querySelector(".container");
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", resetGrid);
 
 const slider = document.querySelector("#grid-selector");
 slider.oninput = () => {
-  console.log(slider.value);
   changeGrid(slider.value);
 };
 
@@ -29,6 +30,13 @@ function changeGrid(size) {
   }
 
   container.appendChild(grid);
+}
+
+function resetGrid() {
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.classList.remove("marked");
+  });
 }
 
 changeGrid(16);
