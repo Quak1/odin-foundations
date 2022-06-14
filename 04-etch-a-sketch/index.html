@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" />
-		<script src="script.js" defer></script>
-		<link rel="stylesheet" href="styles.css" type="text/css" media="all">
-		<title>Etch-a-Sketch</title>
-	</head>
-	<body>
-		<div id="grid-container">
-			
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" type="text/css" media="all" />
+    <title>Etch-a-Sketch</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu">
+        <input
+          type="range"
+          name="grid-selector"
+          id="grid-selector"
+          value="16"
+          min="16"
+          max="100"
+        />
+        <button id="reset">reset</button>
+      </div>
+      <div id="grid"></div>
+    </div>
+  </body>
 </html>
