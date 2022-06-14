@@ -1,0 +1,17 @@
+* {
+	/*margin: 0;*/
+	/*padding: 0;*/
+}
+body {
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+
+#restart {
+	margin-top: 20px;
+}

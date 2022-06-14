@@ -28,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
           outcome = "You Win! Paper beats Rock";
           break;
         case "paper":
-          outcome = "It's a tie";
+          outcome = "It's a tie!";
           break;
         case "scissors":
           outcome = "You Lose! Scissors beats paper";
@@ -52,42 +52,67 @@ function playRound(playerSelection, computerSelection) {
       outcome = "Invalid user selection";
       break;
   }
-  console.log(outcome);
+
+  resultBoard.textContent = outcome;
+  updateScore(outcome);
+  updateBoard(outcome);
+
   return outcome;
 }
 
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Choose rock, paper or scissors");
-    let outcome = playRound(playerSelection, computerPlay());
-    console.log(outcome);
-
-    if (outcome[4] === "W") {
-      playerScore++;
-    } else if (outcome[4] === "L") {
-      computerScore++;
-    }
-  }
-
-  if (playerScore > computerScore) {
-    console.log(`You win! With a ${playerScore} - ${computerScore} score`);
-  } else if (computerScore > playerScore) {
-    console.log(`You lose! With a ${playerScore} - ${computerScore} score`);
-  } else {
-    console.log(`It's a tie! With a ${playerScore} - ${computerScore} score`);
+function updateScore(outcome) {
+  if (outcome[4] === "W") {
+    playerScore++;
+  } else if (outcome[4] === "L") {
+    computerScore++;
   }
 }
 
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
-const buttons = [rock, paper, scissors];
+function updateBoard(outcome) {
+  scoreBoard.textContent = `${playerScore} - ${computerScore}`;
+  resultBoard.textContent = outcome;
 
-buttons.forEach((button) => {
+  if (computerScore == 5 || playerScore == 5) {
+    playerButtons.forEach((button) => (button.disabled = true));
+
+    if (computerScore > playerScore) {
+      resultBoard.textContent = `You lose! With a ${playerScore} - ${computerScore} score`;
+    } else {
+      resultBoard.textContent = `You win! With a ${playerScore} - ${computerScore} score`;
+    }
+
+    restartButton.style.visibility = "visible";
+    restartButton.disabled = false;
+  }
+}
+
+function newGame() {
+  playerScore = 0;
+  computerScore = 0;
+
+  restartButton.style.visibility = "hidden";
+  restartButton.disabled = true;
+
+  playerButtons.forEach((button) => (button.disabled = false));
+
+  scoreBoard.textContent = "0 - 0";
+  resultBoard.textContent = "Choose an option to start the game";
+}
+
+let playerScore = 0;
+let computerScore = 0;
+
+const playerButtons = document.querySelectorAll(".player-selection");
+const scoreBoard = document.querySelector("#score");
+const resultBoard = document.querySelector("#result");
+const restartButton = document.querySelector("#restart");
+
+playerButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
-    playRound(e.target.id, computerPlay());
+    playRound(e.target.textContent, computerPlay());
   });
 });
+
+restartButton.addEventListener("click", newGame);
+restartButton.style.visibility = "hidden";
+restartButton.disabled = true;
