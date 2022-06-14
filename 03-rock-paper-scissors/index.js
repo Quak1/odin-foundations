@@ -52,6 +52,7 @@ function playRound(playerSelection, computerSelection) {
       outcome = "Invalid user selection";
       break;
   }
+  console.log(outcome);
   return outcome;
 }
 
@@ -79,3 +80,14 @@ function game() {
     console.log(`It's a tie! With a ${playerScore} - ${computerScore} score`);
   }
 }
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const buttons = [rock, paper, scissors];
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    playRound(e.target.id, computerPlay());
+  });
+});
