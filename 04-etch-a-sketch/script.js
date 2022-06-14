@@ -3,11 +3,11 @@ const resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", resetGrid);
 
 const slider = document.querySelector("#grid-selector");
-slider.oninput = () => {
-  changeGrid(slider.value);
-};
+slider.oninput = () => changeGrid(slider.value);
 
 function changeGrid(size) {
+  if (size > 100) size = 100;
+
   const oldGrid = document.querySelector("#grid");
   oldGrid.remove();
 
